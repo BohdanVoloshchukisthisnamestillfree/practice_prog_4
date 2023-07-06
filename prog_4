@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int countED(int n) //оголошуємо функцію для пошуку кількості рівних дільників
+   {
+    int count = 0; // змінна для підрахунку цих чисел
+
+    // організовуємо цикл від  1 до n
+    for (int m = 1; m <= n; m++)
+     {
+        if (n % m == n / m) 
+          {
+            count++; // збільшуємо значення якщо виконується умова
+            //а саме - залишок дорівнює дільнику...
+          }
+     }
+
+    return count;
+}
+
+int main() {
+    int n; 
+    printf("Enter a natural number (1 < n < 150): ");
+    scanf("%d", &n);//запрошуємо ввести число n
+
+    // перевіряємо виконання умови для n
+    if (n <= 1 || n >= 150) {
+        printf("Invalid input for n.\n");
+        return 1; // видаємо код помилки
+    }
+
+    // викликаємо функцію для пошуку кількості рівних дільників n
+    int result = countED(n);
+    printf("Number of equal divisors for %d: %d\n", n, result);
+    //виводимо отримане значення
+    return 0;
+}
